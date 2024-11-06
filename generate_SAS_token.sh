@@ -14,7 +14,7 @@ SAS_TOKEN=$(az storage container generate-sas \
     --name $CONTAINER_NAME \
     --permissions acdrw \
     --expiry $EXPIRY_DATE \
-)
+    --output tsv)
 
 if [ -z "$SAS_TOKEN" ]; then
     echo "SAS Token generation failed."
@@ -23,13 +23,8 @@ fi
 
 #Update or add SAS Token in .env
 echo "Updating SAS Token in .env..."
-sed -i '/SAS_TOKEN=/d' .env
+sed -i '/^SAS_TOKEN=/d' .env
 
-echo "SAS_Token=\"$SAS_TOKEN\"" >> .env
+echo "SAS_TOKEN='$SAS_TOKEN'" >> .env
 
 echo "SAS Token generated and updated in .env file"
-
-
-
-
-
