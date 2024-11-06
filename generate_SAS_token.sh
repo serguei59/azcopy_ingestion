@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #load existing environment variables
-if [ -f .env]; then
+if [ -f .env ]; then
     source .env
 else
     echo ".env not found, please create one with the required variables"
