@@ -12,7 +12,7 @@ echo "Generating SAS token..."
 SAS_TOKEN=$(az storage container generate-sas \
     --account-name $STORAGE_ACCOUNT \
     --name $CONTAINER_NAME \
-    --permissions acdrw \
+    --permissions racwd \
     --expiry $EXPIRY_DATE \
     --output tsv)
 
